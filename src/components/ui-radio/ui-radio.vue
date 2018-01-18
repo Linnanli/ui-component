@@ -1,6 +1,6 @@
 <template>
-  <label class="ui-radio" :class="{'checked':model==value}">
-    <input type="radio" ref="radio" :value="value" @click="updateVal">
+  <label class="ui-radio" :class="{'checked':model==value,'disabled':disabled}">
+    <input type="radio" ref="radio" :value="value" @click="updateVal"  :disabled="disabled">
   </label>
 </template>
 <script>
@@ -20,6 +20,10 @@ export default {
       require:true
     },
     checked:{
+      type:Boolean,
+      default:false
+    },
+    disabled:{
       type:Boolean,
       default:false
     }
@@ -44,6 +48,9 @@ export default {
   display: inline-block;
   position: relative;
 }
+.ui-radio.disabled{
+  border-color: #ccc;
+}
 .ui-radio::after{
   content: '';
   width: 10px;
@@ -58,6 +65,9 @@ export default {
   transition: all .5s ease;
   opacity: 0;
   transform: scale(0);
+}
+.ui-radio.disabled::after{
+  background-color: #ccc;
 }
 .ui-radio.checked::after {
    opacity: 1;

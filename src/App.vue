@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <ui-radio v-model="val" value="1"></ui-radio>吃饭
-    <ui-radio v-model="val" value="2" ></ui-radio>睡觉
-    <ui-radio v-model="val" value="3" :checked="true"></ui-radio>打豆豆
+    <ui-radio v-model="val" value="2" :disabled="true" :checked="true"></ui-radio>睡觉
+    <ui-radio v-model="val" value="3" ></ui-radio>打豆豆
     <div>{{val}}</div>
   </div>
 </template>
