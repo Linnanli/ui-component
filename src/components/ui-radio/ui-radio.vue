@@ -1,6 +1,6 @@
 <template>
   <label class="ui-radio" :class="{'checked':model==value,'disabled':disabled}">
-    <input type="radio" ref="radio" :value="value" @click="updateVal"  :disabled="disabled">
+    <input type="radio" ref="radio" :value="value" @click="updateVal" :disabled="disabled">
   </label>
 </template>
 <script>

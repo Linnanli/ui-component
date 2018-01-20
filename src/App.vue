@@ -1,34 +1,55 @@
 <template>
   <div id="app">
-    <ui-radio v-model="val" value="1"></ui-radio>吃饭
-    <ui-radio v-model="val" value="2" :disabled="true" :checked="true"></ui-radio>睡觉
-    <ui-radio v-model="val" value="3" ></ui-radio>打豆豆
-    <div>{{val}}</div>
+    <ui-nav title="导航栏"></ui-nav>
+    <div class="contain">
+      <ui-radio v-model="val" value="2"></ui-radio>吃饭
+      <ui-radio v-model="val" value="3" :disabled="disabled" :checked="true"></ui-radio>睡觉
+      <ui-radio v-model="val" value="4" ></ui-radio>打豆豆
+      <div>
+        <button @click="setDisab()">radio disabled</button>
+      </div>  
+    </div> 
   </div>
 </template>
   
 <script>
 import {UiRadio} from './components/ui-radio'
+import {UiNav} from './components/ui-nav'
+
 export default {
   name: 'App',
   data:()=>{
     return {
-      val:'1'
+      val:'',
+      disabled:false
+    }
+  },
+  methods:{
+    setDisab:function(){
+      this.disabled = !this.disabled;
     }
   },
   components: {
-    UiRadio
+    UiRadio,
+    UiNav
   }
 }
 </script>
 
 <style>
+body,html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
 #app {
+  width: 100%;
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: #eee;
 }
 </style>
