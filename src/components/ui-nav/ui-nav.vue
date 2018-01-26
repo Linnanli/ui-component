@@ -1,7 +1,16 @@
 <template>
-  <div class="nav">
-      <span class="nav-but" @click="$emit('backoff')">〈</span>
-      <span class="nav-title">{{title}}</span>
+  <div class="ui-nav">
+      <div class="ui-nav-item">
+          <slot name="left"></slot>
+      </div>
+      <div class="ui-nav-center">
+          <slot name="center">
+              <div class="ui-nav-title">{{title}}</div>
+          </slot>
+      </div>
+      <div class="ui-nav-item">
+          <slot name="right"></slot>
+      </div>
   </div>
 </template>
 <script>
@@ -15,22 +24,26 @@ export default {
 }
 </script>
 <style scoped>
-.nav{
+.ui-nav{
     width: 100%;
     height: 40px;
+    line-height: 40px;
     background-color: #fff;
     display: flex;
-    flex-direction: row ;
-    position: relative;
+    flex-direction: row;
 }
-.nav-but{
-    width: 40px;
-    line-height: 40px;
-    position: absolute;
-    cursor: pointer;
+.ui-nav-item{
+    width: 25%;
+    display: flex;
+    align-items: center;
 }
-.nav-title{
+.ui-nav-item:last-child{
+    justify-content: flex-end;
+}
+.ui-nav-center{
     flex-grow: 1;
-    line-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

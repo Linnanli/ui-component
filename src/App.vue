@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <ui-nav title="导航栏"></ui-nav>
+    <ui-nav title="导航栏">
+      <ui-nav-next slot="left" @click.native="setDisab"></ui-nav-next>
+      <ui-nav-back slot="right"></ui-nav-back>
+    </ui-nav>
     <div class="contain">
       <ui-radio v-model="val" value="2"></ui-radio>吃饭
       <ui-radio v-model="val" value="3" :disabled="disabled" :checked="true"></ui-radio>睡觉
@@ -14,7 +17,7 @@
   
 <script>
 import {UiRadio} from './components/ui-radio'
-import {UiNav} from './components/ui-nav'
+import {UiNav,UiNavNext,UiNavBack} from './components/ui-nav'
 
 export default {
   name: 'App',
@@ -31,7 +34,9 @@ export default {
   },
   components: {
     UiRadio,
-    UiNav
+    UiNav,
+    UiNavNext,
+    UiNavBack
   }
 }
 </script>
